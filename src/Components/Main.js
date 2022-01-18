@@ -4,13 +4,14 @@ import stopsound from "./stop.wav";
 import "./main.css";
 
 export default function Main() {
-  let ranNum = Math.floor(Math.random() * 40);
-  let ransec = ranNum < 10 ? ranNum + 10 : ranNum;
+  let ranNum = Math.floor(Math.random() * 50);
+  let ransec = ranNum < 30 ? ranNum + 20 : ranNum;
 
   const [isstart, setIsStart] = useState(false);
   const [seconds, setSeconds] = useState(ransec);
   const [isZero, setIsZero] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [displaySec, setDisplaySec] = useState(false);
 
   function start(e) {
     let startAudio = new Audio(startsound);
@@ -49,15 +50,38 @@ export default function Main() {
       {!isstart ? (
         <div>
           <h2>STL Monopoly Gang</h2>
-          <h4>Click "Start" button to start hidden timer</h4>
+          <h4>Click "Start" button to start random timer</h4>
           <h4>Click "Reset" button to reset timer</h4>
         </div>
       ) : (
         ""
       )}
-      <button className="btn btn-1" onClick={start}>
-        START
-      </button>
+      {isstart ? (
+        <div
+          className="btn btn-3"
+          onClick={() => setDisplaySec(!displaySec)}
+          style={{ padding: "2%" }}
+        >
+          {displaySec ? (
+            <div>
+              <p style={{ fontSize: "8vh", marginTop: "0", marginBottom: "0" }}>
+                {seconds}
+              </p>{" "}
+              <p style={{ marginTop: "0", marginBottom: "0" }}>
+                Click to Hide timer
+              </p>
+            </div>
+          ) : (
+            <p style={{ marginTop: "0", marginBottom: "0" }}>
+              Click to show timer
+            </p>
+          )}
+        </div>
+      ) : (
+        <button className="btn btn-1" onClick={start}>
+          START
+        </button>
+      )}
       {isPlaying ? (
         <img
           alt="stopnstart"
