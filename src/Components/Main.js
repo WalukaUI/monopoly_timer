@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import startsound from "./start.wav";
 import stopsound from "./stop.wav";
+import "./main.css";
 
 export default function Main() {
   let ranNum = Math.floor(Math.random() * 40);
@@ -28,6 +29,7 @@ export default function Main() {
   }
   function reset(e) {
     e.preventDefault();
+    setIsStart(false);
     setIsPlaying(false);
   }
   useEffect(() => {
@@ -44,13 +46,22 @@ export default function Main() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isstart, seconds]);
+  }, [isstart, seconds, playAudio]);
 
   return (
-    <div>
-      <button onClick={start}>START</button>
-
-      <h2>{seconds}</h2>
+    <div className="btn-3 container">
+      {!isstart ? (
+        <div>
+          <h2>STL Monopoly Gang</h2>
+          <h4>Click "Start" button to start hidden timer</h4>
+          <h4>Click "Reset" button to reset timer</h4>
+        </div>
+      ) : (
+        ""
+      )}
+      <button className="btn btn-1" onClick={start}>
+        START
+      </button>
       {isPlaying ? (
         <img
           alt="stopnstart"
@@ -63,7 +74,9 @@ export default function Main() {
       ) : (
         ""
       )}
-      <button onClick={reset}>RESET</button>
+      <button className="btn btn-2" onClick={reset}>
+        RESET
+      </button>
     </div>
   );
 }
