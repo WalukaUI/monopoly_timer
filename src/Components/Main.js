@@ -4,8 +4,8 @@ import stopsound from "./stop.wav";
 import "./main.css";
 
 export default function Main() {
-  let ranNum = Math.floor(Math.random() * 50);
-  let ransec = ranNum < 30 ? ranNum + 20 : ranNum;
+  let ranNum = Math.floor(Math.random() * 20);
+  let ransec = ranNum < 10 ? ranNum + 10 : ranNum;
 
   const [isstart, setIsStart] = useState(false);
   const [seconds, setSeconds] = useState(ransec);
@@ -46,7 +46,7 @@ export default function Main() {
   }, [isstart, seconds]);
 
   return (
-    <div className="btn-3 container">
+    <div className="btn-3 container common">
       {!isstart ? (
         <div>
           <h2>STL Monopoly Gang</h2>
@@ -58,7 +58,7 @@ export default function Main() {
       )}
       {isstart ? (
         <div
-          className="btn btn-3"
+          className="btn btn-3 common"
           onClick={() => setDisplaySec(!displaySec)}
           style={{ padding: "2%" }}
         >
@@ -84,6 +84,7 @@ export default function Main() {
       )}
       {isPlaying ? (
         <img
+          className="animetion"
           alt="stopnstart"
           src={
             !isZero

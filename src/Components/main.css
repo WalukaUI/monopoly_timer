@@ -1,21 +1,20 @@
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
-  background-color: linear-gradient(
-    to right,
-    #ffecd2 0%,
-    #fcb69f 51%,
-    #ffecd2 100%
-  );
+  /* background: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%); */
   text-align: center;
 }
-
-.container {
+.animetion {
+  width: 100%;
+}
+.common {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   align-content: center;
+}
+.container {
   flex-wrap: wrap;
   width: 100vw;
   margin: 0 auto;
