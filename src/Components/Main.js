@@ -12,10 +12,8 @@ export default function Main() {
   const [isZero, setIsZero] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  let startAudio = new Audio(startsound);
-  let stopAudio = new Audio(stopsound);
-
   function start(e) {
+    let startAudio = new Audio(startsound);
     e.preventDefault();
     setIsPlaying(true);
     setIsZero(false);
@@ -24,20 +22,18 @@ export default function Main() {
     startAudio.play();
   }
 
-  function playAudio() {
-    stopAudio.play();
-  }
   function reset(e) {
     e.preventDefault();
     setIsStart(false);
     setIsPlaying(false);
   }
   useEffect(() => {
+    let stopAudio = new Audio(stopsound);
     let interval = null;
     if (seconds === 0) {
       setIsStart(false);
       setIsZero(true);
-      playAudio();
+      stopAudio.play();
     } else if (isstart) {
       interval = setInterval(() => {
         setSeconds((seconds) => seconds - 1);
@@ -46,7 +42,7 @@ export default function Main() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isstart, seconds, playAudio]);
+  }, [isstart, seconds]);
 
   return (
     <div className="btn-3 container">
