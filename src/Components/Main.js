@@ -17,10 +17,10 @@ export default function Main() {
     let startAudio = new Audio(startsound);
     e.preventDefault();
     setIsPlaying(true);
+    startAudio.play();
     setIsZero(false);
     setIsStart(true);
     setSeconds(ransec);
-    startAudio.play();
   }
 
   function reset(e) {
@@ -32,9 +32,9 @@ export default function Main() {
     let stopAudio = new Audio(stopsound);
     let interval = null;
     if (seconds === 0) {
+      stopAudio.play();
       setIsStart(false);
       setIsZero(true);
-      stopAudio.play();
     } else if (isstart) {
       interval = setInterval(() => {
         setSeconds((seconds) => seconds - 1);
