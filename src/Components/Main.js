@@ -23,7 +23,9 @@ export default function Main() {
     setIsStart(true);
     setSeconds(ransec);
   }
-
+  function playStop() {
+    stopAudio.play();
+  }
   function reset(e) {
     e.preventDefault();
     setIsStart(false);
@@ -33,6 +35,7 @@ export default function Main() {
     let interval = null;
     if (seconds === 0) {
       stopAudio.play();
+      playStop();
       setIsStart(false);
       setIsZero(true);
     } else if (isstart) {
