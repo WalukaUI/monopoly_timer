@@ -4,9 +4,13 @@ body {
   /* background: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%); */
   text-align: center;
 }
-.animetion {
-  width: 100%;
+
+@media only screen and (max-width: 600px) {
+  .animetion {
+    width: 100%;
+  }
 }
+
 .common {
   display: flex;
   justify-content: center;
