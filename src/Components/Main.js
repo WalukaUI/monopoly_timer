@@ -29,9 +29,9 @@ export default function Main() {
     setIsPlaying(false);
   }
   useEffect(() => {
-    let stopAudio = new Audio(stopsound);
     let interval = null;
     if (seconds === 0) {
+      let stopAudio = new Audio(stopsound);
       stopAudio.play();
       setIsStart(false);
       setIsZero(true);
