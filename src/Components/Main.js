@@ -12,7 +12,6 @@ export default function Main() {
   const [isZero, setIsZero] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [displaySec, setDisplaySec] = useState(false);
-  let stopAudio = new Audio(stopsound);
 
   function start(e) {
     e.preventDefault();
@@ -23,9 +22,6 @@ export default function Main() {
     setIsStart(true);
     setSeconds(ransec);
   }
-  function playStop() {
-    stopAudio.play();
-  }
   function reset(e) {
     e.preventDefault();
     setIsStart(false);
@@ -33,9 +29,9 @@ export default function Main() {
   }
   useEffect(() => {
     let interval = null;
+    let stopAudio = new Audio(stopsound);
     if (seconds === 0) {
       stopAudio.play();
-      playStop();
       setIsStart(false);
       setIsZero(true);
     } else if (isstart) {
