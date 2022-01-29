@@ -4,7 +4,7 @@ import stopsound from "./siren.wav";
 import "./main.css";
 
 export default function Main() {
-  let ranNum = Math.floor(Math.random() * 30);
+  let ranNum = Math.floor(Math.random() * 50);
   let ransec = ranNum < 15 ? ranNum + 12 : ranNum;
 
   const [isstart, setIsStart] = useState(false);
