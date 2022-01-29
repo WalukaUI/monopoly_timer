@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import startsound from "./start.wav";
-import stopsound from "./stop.wav";
+import stopsound from "./siren.wav";
 import "./main.css";
 
 export default function Main() {
-  let ranNum = Math.floor(Math.random() * 50);
+  let ranNum = Math.floor(Math.random() * 30);
   let ransec = ranNum < 15 ? ranNum + 12 : ranNum;
 
   const [isstart, setIsStart] = useState(false);
@@ -88,7 +88,7 @@ export default function Main() {
           src={
             !isZero
               ? "https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif"
-              : "https://media.giphy.com/media/EKDGlXqALQUOQ/giphy.gif"
+              : "./isuru.gif"
           }
         />
       ) : (
